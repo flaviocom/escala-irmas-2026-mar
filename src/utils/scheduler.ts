@@ -28,6 +28,12 @@ export function generateEmptySchedule(): Shift[] {
     const dayOfWeek = getDay(date); // 0=Sun, ..., 6=Sat
     const dateStr = format(date, 'yyyy-MM-dd');
 
+    // SANTA_CEIA
+    if (dateStr === '2026-06-07') {
+      shifts.push({ id: `shift-${shiftIdCounter++}`, date, type: 'SANTA_CEIA', assignedSisters: [] });
+      return;
+    }
+
     // TARDE ENSAIO
     if (ensaioDates.includes(dateStr)) {
       shifts.push({ id: `shift-${shiftIdCounter++}`, date, type: 'TARDE', assignedSisters: [] });
@@ -126,7 +132,7 @@ export function generateSchedule(): Shift[] {
     2: { 1: ['divone', 'izabel'], 4: ['valeria', 'rose'], 7: ['flora', 'nelci'], 8: ['jaqueline', 'fatima'], 11: ['cris', 'divone'], 14: ['geralda', 'francisca'], 15: ['laurenca', 'valeria'], 18: ['izabel', 'flora'], 21: ['fatima', 'raquel'], 22: ['nelci', 'geralda'], 25: ['laurenca', 'cris'], 28: ['divone', 'jaqueline'], 29: ['rose', 'flora'] },
     3: { 1: ['izabel', 'francisca'], 4: ['flora', 'divone'], 5: ['geralda', 'rose'], 8: ['cris', 'laurenca'], 11: ['jaqueline', 'nelci'], 12: ['fatima', 'flora'], 15: ['geralda', 'raquel'], 18: ['valeria', 'izabel'], 19: ['laurenca', 'fatima'], 22: ['rose', 'cris'], 25: ['flora', 'jaqueline'], 26: ['divone', 'valeria'], 29: ['nelci', 'geralda'] },
     4: { 2: ['valeria', 'flora'], 3: ['rose', 'jaqueline'], 6: ['geralda', 'cris'], 9: ['laurenca', 'izabel'], 10: ['nelci', 'divone'], 13: ['izabel', 'raquel'], 16: ['fatima', 'rose'], 17: ['flora', 'laurenca'], 20: ['cris', 'fatima'], 23: ['divone', 'geralda'], 24: ['jaqueline', 'valeria'], 27: ['francisca', 'cris'], 30: ['fatima', 'izabel'], 31: ['rose', 'nelci'] },
-    5: { 3: ['izabel', 'francisca'], 6: ['geralda', 'laurenca'], 7: ['fatima', 'nelci'], 10: ['cris', 'rose'], 13: ['divone', 'izabel'], 14: ['flora', 'geralda'], 17: ['raquel', 'fatima'], 20: ['nelci', 'jaqueline'], 21: ['valeria', 'divone'], 24: ['laurenca', 'cris'], 27: ['rose', 'flora'], 28: ['jaqueline', 'valeria'] }
+    5: { 3: ['izabel', 'francisca'], 6: ['geralda', 'laurenca'], 10: ['cris', 'rose'], 13: ['divone', 'izabel'], 14: ['flora', 'geralda'], 17: ['raquel', 'fatima'], 20: ['nelci', 'jaqueline'], 21: ['valeria', 'divone'], 24: ['laurenca', 'cris'], 27: ['rose', 'flora'], 28: ['jaqueline', 'valeria'] }
   };
 
   const ensaioData: Record<number, { day: number, sister: string }> = {

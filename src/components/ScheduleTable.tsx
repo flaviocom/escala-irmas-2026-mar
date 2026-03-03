@@ -118,8 +118,8 @@ export const ScheduleTable: React.FC<ScheduleTableProps> = ({
   const ShiftBadge = ({ type }: { type: string }) => {
     if (type === 'SANTA_CEIA') {
       return (
-        <span className="px-space-2 py-space-1 inline-flex items-center gap-space-1 text-text-xs font-semibold rounded-radius-full bg-surface-subtle text-status-warning border border-status-warning">
-          <AlertCircle className="h-3 w-3" />
+        <span className="px-3 py-1 inline-flex items-center gap-1.5 text-[11px] font-bold uppercase rounded-full bg-white text-orange-500 border border-orange-400 tracking-wide">
+          <AlertCircle className="h-3.5 w-3.5" />
           SANTA CEIA
         </span>
       );

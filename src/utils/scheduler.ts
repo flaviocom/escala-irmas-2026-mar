@@ -108,7 +108,7 @@ export function runValidation(shifts: Shift[]): ValidationResult[] {
 
   results.push({
     rule: 'Validação de Datas',
-    status: dateValid as any,
+    status: dateValid === true ? 'pass' : (dateValid === 'warn' ? 'warn' : 'fail'),
     message: dateValid === true ? 'OK' : 'Verifique as datas',
     details: dateDetails
   });

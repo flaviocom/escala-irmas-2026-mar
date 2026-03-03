@@ -33,6 +33,11 @@ export function generateEmptySchedule(): Shift[] {
       return;
     }
 
+    // Exception: 07/03/2026 -> TARDE ENSAIO
+    if (dateStr === '2026-03-07') {
+      shifts.push({ id: `shift-${shiftIdCounter++}`, date, type: 'TARDE', assignedSisters: [] });
+    }
+
     // Cults: Sunday(0), Wednesday(3), Saturday(6)
     if (dayOfWeek === 0 || dayOfWeek === 3 || dayOfWeek === 6) {
       shifts.push({ id: `shift-${shiftIdCounter++}`, date, type: 'NOITE', assignedSisters: [] });
@@ -139,7 +144,10 @@ export function generateSchedule(): Shift[] {
   for (const shift of shifts) {
     if (shift.date.getFullYear() === 2026 && shift.date.getMonth() === 2) { // Março = 2
       const day = shift.date.getDate();
-      if (marchData[day]) {
+
+      if (day === 7 && shift.type === 'TARDE') {
+        shift.assignedSisters = ['geralda'];
+      } else if (marchData[day]) {
         shift.assignedSisters = [...marchData[day]];
       }
     }

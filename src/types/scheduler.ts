@@ -19,6 +19,7 @@ export interface Shift {
 }
 
 export const SISTERS: Sister[] = [
+  { id: 'carla', name: 'Carla', constraints: {} },
   { id: 'cris', name: 'Cris', constraints: {} },
   { id: 'divone', name: 'Divone', constraints: {} },
   { id: 'fatima', name: 'Fátima', constraints: {} },
